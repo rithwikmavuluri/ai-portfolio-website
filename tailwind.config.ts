@@ -11,6 +11,18 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        coral: "#FF6B6B",
+        teal: "#4ECDC4",
+        mint: "#95E1D3",
+        dark: "#0a0a0a",
+        darkAlt: "#1a1a2e",
+      },
+      fontFamily: {
+        sans: ['DM Sans', 'system-ui', 'sans-serif'],
+      },
+      backdropBlur: {
+        '20': '20px',
+        '30': '30px',
       },
     },
   },

@@ -1,0 +1,282 @@
+{
+  "personal": {
+    "name": "Rithwik Mavuluri",
+    "role": "AI Product Manager",
+    "tagline": "I ship AI products fast and think deeply.",
+    "location": "Bengaluru, India",
+    "phone": "+91-8500297725",
+    "email": "rithwikmavuluri@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/rithwik-mavuluri/",
+    "experience_years": 5.5
+  },
+  
+  "hero": {
+    "greeting": "Ask me anything about my work.",
+    "suggested_questions": [
+      "What AI products have you shipped?",
+      "How do you approach AI product strategy?",
+      "Tell me about a complex problem you solved"
+    ],
+    "chat_placeholder": "What would you like to know?",
+    "calendly_cta": "Want to dive deeper? Book a call"
+  },
+  
+  "experience": [
+    {
+      "company": "Arka Energy",
+      "description": "AI-Powered Solar Design Software",
+      "location": "Bengaluru, India",
+      "role": "Product Manager",
+      "start_date": "July 2023",
+      "end_date": "Present",
+      "is_current": true,
+      "highlights": [
+        "Led end-to-end development of AI agent application using LLM-based agentic architecture to automate solar design workflows; authored 35-page PRD with multi-level user workflows, technical integration specs, and GTM strategy; designed progressive conversation flows to generate custom proposals",
+        "Shipped Arka Go mobile application—business management platform for India's Tier-2/3 solar installers; led strategic pivot from freemium to completely free model (improving projected retention 22% → 70%); designed organization-first architecture enabling multi-user team collaboration",
+        "Supported AI-powered roof detection feature launch using computer vision models (R-CNN); coordinated training data strategy with ML engineering team; project-managed 10 contractors creating 50K+ clean datasets; tracked model training cycles; made product demos; result: 95% reduction in design time (5 min → 15 sec), 12-point NPS increase",
+        "Revitalized end-to-end UX of ARKA 360 through 75+ user interviews, reducing 90% of key actions to under 3 clicks and increasing global market share from 4% to 6%",
+        "Coordinated 40+ cross-functional team members across Engineering (ML/AI, Frontend, Backend, QA), Design, Marketing, Sales, and Operations to define roadmaps and successful feature delivery across U.S and SEA markets"
+      ]
+    },
+    {
+      "company": "Mason",
+      "description": "AI Shopping Engine for E-commerce",
+      "location": "Bengaluru, India",
+      "role": "Associate Product Manager",
+      "start_date": "April 2022",
+      "end_date": "February 2023",
+      "is_current": false,
+      "highlights": [
+        "Conducted 50+ user interviews to identify activation barriers, redesigned onboarding flow reducing Day 0 churn by 10% and increasing first-session engagement by 20%",
+        "Launched a new pricing tier after competitor analysis, projected to increase revenue per customer by 60%, securing 3 paid conversions in the first 3 months",
+        "Designed and analyzed 5 cross-functional A/B tests using Amplitude funnel analysis and Hotjar session replays to identify friction points, then refined hypotheses with Hotjar session replays and heatmaps"
+      ]
+    },
+    {
+      "company": "Zinnov Management Consulting",
+      "description": "India's top Global Capability advisor",
+      "location": "Bengaluru, India",
+      "role": "Senior Management Consultant",
+      "start_date": "August 2020",
+      "end_date": "March 2022",
+      "is_current": false,
+      "highlights": [
+        "Advised CXO teams at 5 Fortune-500 GCoEs (representing 50K India headcount) on maturity benchmarking and innovation strategy; 2 firms retained Zinnov for roadmap execution post-project",
+        "Led $40K engagement for BMC Software, redesigning organizational structure and talent alignment to improve governance and strategic clarity",
+        "Authored pan-industry ESG framework by researching 40+ Global Capability Centers, analyzing budgets, initiatives, and impact metrics"
+      ]
+    }
+  ],
+  
+  "projects": [
+    {
+      "id": "ai-portfolio",
+      "title": "AI-Powered Portfolio",
+      "short_description": "Built RAG-powered portfolio website as meta-demonstration of AI product building capabilities",
+      "technologies": ["Claude", "RAG", "LangChain", "React"],
+      "color": "#FF6B6B",
+      "has_case_study": false,
+      "clickable": false
+    },
+    {
+      "id": "roof-detection",
+      "title": "AI-Powered Roof Detection",
+      "short_description": "95% time reduction with 75% accuracy. Shipped computer vision solution for solar design automation",
+      "technologies": ["Computer Vision", "CNN", "Vue", "LIDAR"],
+      "color": "#95E1D3",
+      "has_case_study": true,
+      "clickable": true
+    }
+  ],
+  
+  "case_study": {
+    "title": "AI-Powered Roof Detection: 60x Faster Solar Proposals",
+    "at_a_glance": {
+      "impact": "60x designer productivity improvement, $40k ARR from 6 new customers",
+      "timeline": "9 months (Nov 2024 → Aug 2025)",
+      "role": "Product Lead",
+      "team": "1 ML Engineer, 1 Engineering Lead, PM (me)"
+    },
+    "problem": "Solar designers spent 15-20 minutes manually tracing each roof using satellite imagery, Google Street View, and 3D spatial data. This bottleneck limited how many proposals each designer could generate, directly impacting revenue and project timelines. Sales teams couldn't scale. Onboarding new designers took weeks. Most neighborhoods got ignored because teams only had capacity to quote \"sure bet\" homes.",
+    "solution": "Built an AI-powered roof detection system that automatically identifies and segments roof faces in under 20 seconds with 92% accuracy. Designers now generate proposals 60x faster.",
+    "my_role": {
+      "dataset_strategy": "Analyzed failed detections to identify quality issues in initial 60k training dataset. Designed experiment-driven approach: prioritized 3 edge cases (complex geometries, shadows, low-quality imagery). Result: Cut dataset to 15k high-quality images while dramatically improving model performance.",
+      "execution": "Coordinated ML engineer (Ankit Gupta) and engineering lead across 9-month timeline. Navigated technical limitations through iterative experimentation vs. brute-force data collection. Shipped to production on time despite pivoting from quantity (60k) to quality (15k) approach.",
+      "gtm": "Drove adoption with 6 new customer organizations within first 6 months. Enabled new sales motion: 'Canvas entire neighborhoods, not just cherry-picked homes.' Reduced new designer onboarding from weeks to days."
+    },
+    "impact": {
+      "designers": "95% time reduction: 15-20 minutes → 20 seconds per roof design",
+      "sales": "60x productivity: Sales teams can now generate proposals for entire neighborhoods instead of select homes",
+      "business": "$40k ARR: 6 new customer organizations signed within 6 months post-launch"
+    },
+    "learnings": [
+      "Quality > Quantity in AI Products: Our breakthrough came from cutting our dataset by 75% and focusing on edge cases, not collecting more data. This required discipline—resisting the 'let's just train on everything' instinct and instead running targeted experiments to understand failure modes.",
+      "AI Product Leadership = Constraint Navigation: Technical limitations (model accuracy on complex roofs) and data quality issues could have derailed the project. Success came from reframing these as product decisions: Which edge cases matter most? Where's the 80/20? What's 'good enough' for production?"
+    ],
+    "status": "In production and actively used by all 6 customer organizations. Currently expanding training dataset for next iteration based on production learnings.",
+    "technologies": ["YOLOv8m", "Mask R-CNN", "Python", "A40 GPU", "LIDAR", "Vue"]
+  },
+  
+  "skills": {
+    "ai_ml": {
+      "category": "AI/ML Product",
+      "icon": "Brain",
+      "color": "#FF6B6B",
+      "skills": [
+        "AI Agent Development",
+        "Agentic AI",
+        "LangChain",
+        "LangGraph",
+        "RAG",
+        "Computer Vision",
+        "R-CNN",
+        "Prompt Engineering",
+        "ML Model Lifecycle",
+        "Vector Databases",
+        "Training Data Strategy"
+      ]
+    },
+    "product": {
+      "category": "Product Management",
+      "icon": "Zap",
+      "color": "#4ECDC4",
+      "skills": [
+        "User Research & Interviews",
+        "A/B Testing",
+        "Product Strategy",
+        "Stakeholder Management",
+        "Product Roadmapping",
+        "Cross-Functional Leadership",
+        "End-to-End Agile Product Development",
+        "Go-to-Market Strategy",
+        "Product Demos and Webinars"
+      ]
+    },
+    "domain": {
+      "category": "Domain Expertise",
+      "icon": "Code",
+      "color": "#95E1D3",
+      "skills": [
+        "B2B SaaS",
+        "Clean Tech",
+        "E-commerce",
+        "PLG",
+        "Enterprise Software",
+        "Solar Technology",
+        "Mobile/Web Applications",
+        "AI Native Products"
+      ]
+    }
+  },
+  
+  "education": {
+    "degree": "M.Sc + B.Tech (Dual Degree)",
+    "institution": "Birla Institute of Technology and Science, Pilani",
+    "short_name": "BITS Pilani",
+    "location": "Pilani, India",
+    "start_year": 2015,
+    "end_year": 2020
+  },
+  
+  "certifications": {
+    "ai_ml": {
+      "category": "AI/ML Knowledge",
+      "icon": "Brain",
+      "color": "#FF6B6B",
+      "items": [
+        {
+          "name": "Generative AI Masters Program",
+          "provider": "Edureka",
+          "status": "In Progress",
+          "expected": "March 2026"
+        },
+        {
+          "name": "ML Foundations for Product Managers",
+          "provider": "Duke University",
+          "status": "Completed",
+          "date": "July 2025"
+        }
+      ]
+    },
+    "product": {
+      "category": "Product Knowledge",
+      "icon": "Zap",
+      "color": "#4ECDC4",
+      "items": [
+        {
+          "name": "Micro Certifications",
+          "provider": "Product School",
+          "status": "Completed",
+          "date": "January 2026",
+          "areas": ["AI", "Analytics", "Strategy", "PLG"]
+        }
+      ]
+    },
+    "learning": {
+      "category": "Staying Current",
+      "icon": "Sparkles",
+      "color": "#95E1D3",
+      "items": [
+        {
+          "name": "Lenny's Newsletter",
+          "url": "https://www.lennysnewsletter.com/",
+          "focus": "Product Management"
+        },
+        {
+          "name": "Aakash Gupta's Newsletter",
+          "url": "https://substack.com/@aakashgupta",
+          "focus": "AI Product Management"
+        }
+      ]
+    }
+  },
+  
+  "social_links": {
+    "gmail": {
+      "url": "mailto:rithwikmavuluri@gmail.com",
+      "icon": "Mail",
+      "color": "#EA4335"
+    },
+    "topmate": {
+      "url": "https://topmate.io/rithwik_mavuluri",
+      "color": "#E94D35",
+      "note": "UPDATE WITH ACTUAL URL"
+    },
+    "substack": {
+      "url": "https://your-substack.substack.com",
+      "color": "#FF6719",
+      "note": "UPDATE WITH ACTUAL URL"
+    },
+    "linkedin": {
+      "url": "https://linkedin.com/in/rithwik-mavuluri",
+      "icon": "Linkedin",
+      "color": "#0077B5"
+    },
+    "calendly": {
+      "url": "https://calendly.com/rithwik-mavuluri",
+      "icon": "Calendar",
+      "color": "#006BFF",
+      "note": "UPDATE WITH ACTUAL URL - used in 2 places"
+    }
+  },
+  
+  "design_tokens": {
+    "colors": {
+      "coral": "#FF6B6B",
+      "teal": "#4ECDC4",
+      "mint": "#95E1D3",
+      "dark": "#0a0a0a",
+      "darkAlt": "#1a1a2e"
+    },
+    "fonts": {
+      "primary": "DM Sans",
+      "import": "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap"
+    },
+    "bits_logo": {
+      "blue": "#1e3a8a",
+      "blueLight": "#3b82f6",
+      "gold": "#fbbf24",
+      "goldDark": "#f59e0b"
+    }
+  }
+}
