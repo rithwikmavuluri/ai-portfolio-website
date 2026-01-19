@@ -50,6 +50,11 @@ export const getSessionId = (): string => {
  * Initialize a new conversation session in Firestore
  */
 export const initializeSession = async (sessionId: string) => {
+  if (!db) {
+    console.warn('⚠️ Firestore not initialized');
+    return false;
+  }
+
   try {
     const sessionRef = doc(db, 'conversations', sessionId);
 
@@ -89,6 +94,11 @@ export const logMessage = async (
     modelUsed?: string;
   }
 ) => {
+  if (!db) {
+    console.warn('⚠️ Firestore not initialized');
+    return false;
+  }
+
   try {
     // Reference to messages subcollection
     const messagesRef = collection(db, 'conversations', sessionId, 'messages');
@@ -138,6 +148,11 @@ const getMessageCount = async (sessionId: string): Promise<number> => {
  * @param sessionId - Unique session identifier
  */
 export const markCTAShown = async (sessionId: string) => {
+  if (!db) {
+    console.warn('⚠️ Firestore not initialized');
+    return false;
+  }
+
   try {
     const sessionRef = doc(db, 'conversations', sessionId);
     await updateDoc(sessionRef, {
@@ -158,6 +173,11 @@ export const markCTAShown = async (sessionId: string) => {
  * @param sessionId - Unique session identifier
  */
 export const markCTAClicked = async (sessionId: string) => {
+  if (!db) {
+    console.warn('⚠️ Firestore not initialized');
+    return false;
+  }
+
   try {
     const sessionRef = doc(db, 'conversations', sessionId);
     await updateDoc(sessionRef, {
@@ -182,6 +202,11 @@ export const updateSession = async (
   sessionId: string,
   updates: Record<string, any>
 ) => {
+  if (!db) {
+    console.warn('⚠️ Firestore not initialized');
+    return false;
+  }
+
   try {
     const sessionRef = doc(db, 'conversations', sessionId);
     await updateDoc(sessionRef, {

@@ -6,22 +6,13 @@
 
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, Suspense } from 'react';
 import { usePathname, useSearchParams } from 'next/navigation';
 import { initGA, trackPageView } from '@/utils/analytics';
 
-export default function AnalyticsProvider({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+function AnalyticsTracker() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
-
-  // Initialize GA4 on mount
-  useEffect(() => {
-    initGA();
-  }, []);
 
   // Track page views on route change
   useEffect(() => {
@@ -29,5 +20,25 @@ export default function AnalyticsProvider({
     trackPageView(url);
   }, [pathname, searchParams]);
 
-  return <>{children}</>;
+  return null;
+}
+
+export default function AnalyticsProvider({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  // Initialize GA4 on mount
+  useEffect(() => {
+    initGA();
+  }, []);
+
+  return (
+    <>
+      <Suspense fallback={null}>
+        <AnalyticsTracker />
+      </Suspense>
+      {children}
+    </>
+  );
 }

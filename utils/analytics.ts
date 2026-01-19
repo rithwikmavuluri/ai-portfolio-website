@@ -61,14 +61,7 @@ export const trackCTAClick = (
   ReactGA.event({
     category: 'CTA',
     action: 'click',
-    label: ctaName,
-    value: undefined,
-    nonInteraction: false,
-    transport: 'beacon',
-    // Custom parameters
-    cta_name: ctaName,
-    cta_url: ctaUrl,
-    cta_location: location,
+    label: `${ctaName} - ${location}`,
   });
 
   console.log(`🔗 CTA Click tracked: ${ctaName} from ${location}`);
@@ -84,7 +77,6 @@ export const trackConversationStarted = (sessionId: string) => {
     category: 'Chatbot',
     action: 'conversation_started',
     label: sessionId,
-    session_id: sessionId,
   });
 
   console.log('💬 Conversation started tracked:', sessionId);
@@ -103,8 +95,6 @@ export const trackMessageSent = (sessionId: string, messageCount: number) => {
     action: 'message_sent',
     label: `Session ${sessionId}`,
     value: messageCount,
-    session_id: sessionId,
-    message_count: messageCount,
   });
 
   console.log(`📤 Message sent tracked: ${messageCount} in session ${sessionId}`);
@@ -126,8 +116,6 @@ export const trackMessageReceived = (
     action: 'message_received',
     label: `Session ${sessionId}`,
     value: responseTime,
-    session_id: sessionId,
-    response_time_ms: responseTime,
   });
 
   console.log(
@@ -146,7 +134,6 @@ export const trackCTAShown = (sessionId: string) => {
     category: 'Chatbot',
     action: 'cta_shown',
     label: 'Book a Call CTA',
-    session_id: sessionId,
   });
 
   console.log('👁️  CTA shown in chat:', sessionId);
@@ -163,7 +150,6 @@ export const trackCTAClickedInChat = (sessionId: string) => {
     category: 'Chatbot',
     action: 'cta_clicked',
     label: 'Book a Call CTA',
-    session_id: sessionId,
   });
 
   console.log('🎯 CTA clicked in chat:', sessionId);

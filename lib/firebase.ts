@@ -18,25 +18,27 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase only once
-let app: FirebaseApp;
-let db: Firestore;
+let app: FirebaseApp | undefined;
+let db: Firestore | undefined;
 let analytics: Analytics | null = null;
 
-if (typeof window !== 'undefined' && !getApps().length) {
-  console.log('🔥 Initializing Firebase...');
-  app = initializeApp(firebaseConfig);
-  db = getFirestore(app);
+if (typeof window !== 'undefined') {
+  if (!getApps().length) {
+    console.log('🔥 Initializing Firebase...');
+    app = initializeApp(firebaseConfig);
+    db = getFirestore(app);
 
-  // Initialize Analytics (only in browser)
-  try {
-    analytics = getAnalytics(app);
-    console.log('📊 Firebase Analytics initialized');
-  } catch (error) {
-    console.warn('⚠️ Firebase Analytics not available:', error);
+    // Initialize Analytics (only in browser)
+    try {
+      analytics = getAnalytics(app);
+      console.log('📊 Firebase Analytics initialized');
+    } catch (error) {
+      console.warn('⚠️ Firebase Analytics not available:', error);
+    }
+  } else {
+    app = getApps()[0];
+    db = getFirestore(app);
   }
-} else if (getApps().length > 0) {
-  app = getApps()[0];
-  db = getFirestore(app);
 }
 
 export { db, analytics };
