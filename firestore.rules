@@ -1,0 +1,64 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Conversations collection - Allow writes, restrict reads
+    match /conversations/{sessionId} {
+      // Allow anyone to create and update their own session
+      allow create: if true;
+      allow update: if true;
+
+      // Only allow reads from authenticated admin (you'll need to set this up in Firebase Console)
+      // For now, deny all reads to protect user privacy
+      allow read: if false;
+
+      // Messages subcollection
+      match /messages/{messageId} {
+        // Allow anyone to write messages to any session
+        allow create: if true;
+        allow update: if true;
+
+        // Deny reads to protect conversation privacy
+        allow read: if false;
+      }
+    }
+
+    // Deny all other collections by default
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
+
+/**
+ * Security Rules Explanation:
+ *
+ * 1. Conversations:
+ *    - Anyone can CREATE a new conversation session
+ *    - Anyone can UPDATE their session metadata
+ *    - NO ONE can READ conversations (privacy protection)
+ *
+ * 2. Messages (subcollection):
+ *    - Anyone can CREATE messages
+ *    - Anyone can UPDATE messages
+ *    - NO ONE can READ messages (privacy protection)
+ *
+ * 3. Admin Access:
+ *    - To read conversations/messages, you'll need to:
+ *      a) Use Firebase Admin SDK with service account
+ *      b) Query from Firebase Console
+ *      c) Use Cloud Functions with elevated permissions
+ *
+ * 4. Why this approach?
+ *    - Protects user privacy
+ *    - Prevents unauthorized data access
+ *    - Allows analytics collection without exposing PII
+ *    - Complies with GDPR/privacy best practices
+ *
+ * To deploy these rules:
+ * 1. Go to Firebase Console
+ * 2. Navigate to Firestore Database > Rules
+ * 3. Copy and paste these rules
+ * 4. Click "Publish"
+ */

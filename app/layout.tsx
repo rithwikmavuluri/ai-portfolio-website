@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import AnalyticsProvider from "@/components/AnalyticsProvider";
 
 export const metadata: Metadata = {
   title: "Rithwik Mavuluri - AI Product Manager",
@@ -14,7 +15,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased">
-        {children}
+        <AnalyticsProvider>
+          {children}
+        </AnalyticsProvider>
       </body>
     </html>
   );
