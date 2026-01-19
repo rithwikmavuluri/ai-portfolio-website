@@ -2,6 +2,20 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { Send, Sparkles, Calendar } from 'lucide-react';
+import {
+  trackConversationStarted,
+  trackMessageSent,
+  trackMessageReceived,
+  trackCTAShown,
+  trackCTAClickedInChat,
+} from '@/utils/analytics';
+import {
+  getSessionId,
+  initializeSession,
+  logMessage,
+  markCTAShown,
+  markCTAClicked,
+} from '@/utils/conversationLogger';
 
 interface Message {
   role: 'user' | 'assistant';
@@ -13,7 +27,7 @@ interface ChatInterfaceProps {
   suggestedQuestions?: string[];
 }
 
-export default function ChatInterface({ 
+export default function ChatInterface({
   suggestedQuestions = [
     "What AI products have you shipped?",
     "How do you approach AI product strategy?",
@@ -24,6 +38,7 @@ export default function ChatInterface({
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [showCalendlyCTA, setShowCalendlyCTA] = useState(false);
+  const [sessionId] = useState(() => getSessionId());
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -36,13 +51,21 @@ export default function ChatInterface({
     scrollToBottom();
   }, [messages]);
 
+  // Initialize session on mount
+  useEffect(() => {
+    initializeSession(sessionId);
+    trackConversationStarted(sessionId);
+  }, [sessionId]);
+
   // Show Calendly CTA after 2 user messages
   useEffect(() => {
     const userMessageCount = messages.filter(m => m.role === 'user').length;
     if (userMessageCount >= 2 && !showCalendlyCTA) {
       setShowCalendlyCTA(true);
+      markCTAShown(sessionId);
+      trackCTAShown(sessionId);
     }
-  }, [messages, showCalendlyCTA]);
+  }, [messages, showCalendlyCTA, sessionId]);
 
   const sendMessage = async (messageText: string) => {
     if (!messageText.trim() || isLoading) return;
@@ -57,6 +80,12 @@ export default function ChatInterface({
     setMessages(prev => [...prev, userMessage]);
     setInput('');
     setIsLoading(true);
+
+    // Track and log user message
+    await logMessage(sessionId, 'user', messageText.trim());
+    const userMessageCount = messages.filter(m => m.role === 'user').length + 1;
+    trackMessageSent(sessionId, userMessageCount);
+    const startTime = Date.now();
 
     try {
       // Call Google Gemini-powered API
@@ -111,6 +140,14 @@ export default function ChatInterface({
         ]);
       }
 
+      // Track and log assistant message
+      const responseTime = Date.now() - startTime;
+      await logMessage(sessionId, 'assistant', assistantMessage, {
+        responseTime,
+        modelUsed: 'gemini-2.0-flash-exp',
+      });
+      trackMessageReceived(sessionId, responseTime);
+
     } catch (error) {
       console.error('Chat error:', error);
       
@@ -134,6 +171,11 @@ export default function ChatInterface({
   const handleSuggestedQuestion = (question: string) => {
     setInput(question);
     setTimeout(() => sendMessage(question), 100);
+  };
+
+  const handleCTAClick = () => {
+    markCTAClicked(sessionId);
+    trackCTAClickedInChat(sessionId);
   };
 
   return (
@@ -236,6 +278,7 @@ export default function ChatInterface({
                 href="https://calendly.com/rithwikmavuluri/30min"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={handleCTAClick}
                 className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#4ECDC4] to-[#95E1D3] text-[#0a0a0a] font-bold rounded-2xl hover:scale-105 transition-transform duration-300"
                 style={{
                   boxShadow: '0 8px 32px rgba(78,205,196,0.4)'

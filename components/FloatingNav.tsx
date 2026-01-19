@@ -1,8 +1,13 @@
 'use client';
 
 import { Mail, Linkedin, Calendar } from 'lucide-react';
+import { trackCTAClick } from '@/utils/analytics';
 
 export default function FloatingNav() {
+  const handleCTAClick = (ctaName: string, ctaUrl: string) => {
+    trackCTAClick(ctaName, ctaUrl, 'floating_nav');
+  };
+
   const navItems = [
     {
       name: 'Gmail',
@@ -83,6 +88,7 @@ export default function FloatingNav() {
               target={item.href.startsWith('mailto:') ? undefined : '_blank'}
               rel={item.href.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
               aria-label={item.ariaLabel}
+              onClick={() => handleCTAClick(item.name, item.href)}
               className="group w-12 h-12 flex items-center justify-center bg-white/[0.05] border border-white/10 rounded-full transition-all duration-300 hover:bg-white/15 hover:scale-110 hover:-translate-y-1"
               style={{
                 '--hover-color': item.color
