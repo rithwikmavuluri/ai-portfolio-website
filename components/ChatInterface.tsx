@@ -233,7 +233,7 @@ export default function ChatInterface({
                 Let's discuss how I can help your team ship AI products fast.
               </p>
               <a
-                href="https://calendly.com/rithwik-mavuluri"
+                href="https://calendly.com/rithwikmavuluri/30min"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#4ECDC4] to-[#95E1D3] text-[#0a0a0a] font-bold rounded-2xl hover:scale-105 transition-transform duration-300"
