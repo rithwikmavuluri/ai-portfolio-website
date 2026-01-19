@@ -243,9 +243,8 @@
       "note": "UPDATE WITH ACTUAL URL"
     },
     "substack": {
-      "url": "https://your-substack.substack.com",
-      "color": "#FF6719",
-      "note": "UPDATE WITH ACTUAL URL"
+      "url": "https://substack.com/@rithwik829825",
+      "color": "#FF6719"
     },
     "linkedin": {
       "url": "https://linkedin.com/in/rithwik-mavuluri",
@@ -253,10 +252,9 @@
       "color": "#0077B5"
     },
     "calendly": {
-      "url": "https://calendly.com/rithwik-mavuluri",
+      "url": "https://calendly.com/rithwikmavuluri/30min",
       "icon": "Calendar",
-      "color": "#006BFF",
-      "note": "UPDATE WITH ACTUAL URL - used in 2 places"
+      "color": "#006BFF"
     }
   },
   

@@ -28,7 +28,7 @@ export default function FloatingNav() {
     {
       name: 'Substack',
       color: '#FF6719',
-      href: 'https://your-substack.substack.com',
+      href: 'https://substack.com/@rithwik829825',
       ariaLabel: 'Read on Substack',
       customIcon: (
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -52,7 +52,7 @@ export default function FloatingNav() {
       name: 'Calendly',
       icon: Calendar,
       color: '#006BFF',
-      href: 'https://calendly.com/rithwik-mavuluri',
+      href: 'https://calendly.com/rithwikmavuluri/30min',
       ariaLabel: 'Schedule a call',
       customIcon: (
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
