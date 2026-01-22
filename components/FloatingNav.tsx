@@ -76,8 +76,8 @@ export default function FloatingNav() {
   ];
 
   return (
-    <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 animate-slideUp">
-      <div className="flex items-center gap-3 px-6 py-4 bg-white/[0.08] backdrop-blur-[30px] border border-white/15 rounded-full shadow-2xl">
+    <div className="fixed left-1/2 -translate-x-1/2 z-50 animate-slideUp" style={{ bottom: 'max(1.5rem, env(safe-area-inset-bottom, 1rem))' }}>
+      <div className="flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-3 sm:py-4 bg-white/[0.08] backdrop-blur-[30px] border border-white/15 rounded-full shadow-2xl">
         {navItems.map((item, index) => {
           const Icon = item.icon;
 
@@ -89,7 +89,7 @@ export default function FloatingNav() {
               rel={item.href.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
               aria-label={item.ariaLabel}
               onClick={() => handleCTAClick(item.name, item.href)}
-              className="group w-12 h-12 flex items-center justify-center bg-white/[0.05] border border-white/10 rounded-full transition-all duration-300 hover:bg-white/15 hover:scale-110 hover:-translate-y-1"
+              className="group w-11 h-11 sm:w-12 sm:h-12 flex items-center justify-center bg-white/[0.05] border border-white/10 rounded-full transition-all duration-300 hover:bg-white/15 hover:scale-110 hover:-translate-y-1 active:scale-95"
               style={{
                 '--hover-color': item.color
               } as React.CSSProperties}

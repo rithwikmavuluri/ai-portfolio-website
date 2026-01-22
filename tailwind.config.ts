@@ -24,6 +24,12 @@ const config: Config = {
         '20': '20px',
         '30': '30px',
       },
+      padding: {
+        'safe': 'env(safe-area-inset-bottom)',
+      },
+      margin: {
+        'safe': 'env(safe-area-inset-bottom)',
+      },
     },
   },
   plugins: [],
