@@ -29,9 +29,9 @@ interface ChatInterfaceProps {
 
 export default function ChatInterface({
   suggestedQuestions = [
-    "What AI products have you shipped?",
-    "How do you approach AI product strategy?",
-    "Tell me about a complex problem you solved"
+    "Show me examples of measurable impact Rithwik created as a PM?",
+    "How does Rithwik approach building AI-powered products?",
+    "Walk me through a product Rithwik built from 0 to 1?"
   ]
 }: ChatInterfaceProps) {
   const [messages, setMessages] = useState<Message[]>([]);
